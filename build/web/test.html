@@ -1,0 +1,53 @@
+    <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <h3 align = "center" style="font-family: cursive; color: blanchedalmond">
+            
+            <input id = "name" type="text" placeholder="Enter Text here" >
+            
+            
+        </h3>
+        
+        <div id = "response"></div>        
+        <script>
+            function func()
+            {
+                
+                var str = document.getElementById("select").value;
+              
+                if(str == "")
+                {
+                    document.getElementById("response").innerHTML="";
+                    return;
+                }
+              
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET","test.jsp?id="+str,true);
+                xhttp.send();
+                
+                xhttp.onreadystatechange = function (){
+                  if (xhttp.readyState == 4 && xhttp.status == 200){
+                      document.getElementById("response").innerHTML = xhttp.responseText;
+                      
+                  }  
+                };
+                
+  
+            }
+            
+            
+        </script>
+    </body>
+</html>
